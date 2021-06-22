@@ -9,39 +9,30 @@
 <body>
 
 <!-- ================== Sidebar content (Login form) ================= -->
-		<div id="mySidenav" class="sidenav">
-		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div id="loggedSidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNavlogged()">&times;</a>
 				<div class="user-form-container">
-					<div style="text-align: center; padding-top: 100px;" class="user-form-title">SIGN IN</div>
-					<form class="user-login" action="index.php?module=common&action=login" method="POST">
-						<input type="email" name="email" class="text-box" placeholder="Email address*" required="true">
-						<input type="password" name="password" class="text-box" placeholder="Password*" required="true">
+					<div style="text-align: center; padding-top: 100px;" class="user-form-title">Vũ Minh Hiếu</div>
+						<p class="user-phone"><img src="../Images/Front/Icons/phone.svg">03992131231</p>
+						<p class="user-address"><img src="../Images/Front/Icons/map-pin.svg">Hà Nội</p>
 						<div style="display: flex;">
-							<button type="submit" name="signin" class="signin-btn" onclick="">SIGN IN</button>
-							<!-- <a href="#forgotpass">Forgot password?</a> -->
+							<button type="submit" name="logout" class="logout-btn" onclick="">LOG OUT</button>
+							<p name="changepass" class="change-password-link"  onclick="passChangenav()">Change password</p>
 						</div>
-						
-					</form>
-					<div class="user-form-suggest">
-						<div class="user-form-title">NEW TO RYANA CALENDAR?</div>
-						<button name="signup" class="suggest-btn"  onclick="signUpnav()">SIGN UP NOW</button>
-					</div>
 				</div>
 		</div>
-		<div id="signUp" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeSignup()">&times;</a>
+		<div id="passChange" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closePassnav()">&times;</a>
 				<div class="user-form-container">
-					<div style="text-align: center; padding-top: 100px;" class="user-form-title">SIGN UP</div>
-					<form class="user-login" method="POST" action="module/common/register.php">
-						<input type="text" name="username" class="text-box" placeholder="Username*" required="true">
-						<input type="email" name="email" class="text-box" placeholder="Email address*" required="true">
-						<input type="number" name="phone" class="text-box" placeholder="Phone*" required="true">
-						<input type="text" name="address" class="text-box" placeholder="Address*" required="true">
-						<input type="password" name="password" class="text-box" placeholder="Password*" required="true">
-						<input type="password" name="passwordconfirm" class="text-box" placeholder="Confirm password*" required="true">
+					<div style="text-align: center; padding-top: 100px;" class="user-form-title">CHANGE YOUR PASSWORD</div>
+					<form class="user-login" action="" method="post">
+						
+						<input type="password" name="oldpassword" class="text-box" placeholder="Old password*" required="true">
+						<input type="password" name="newpassword" class="text-box" placeholder="New password*" required="true">
+						<input type="password" name="confirmnewpassword" class="text-box" placeholder="Confirm new password*" required="true">
 						<div style="display: flex;">
-							<button type="submit" name="signin" class="create-btn" onclick="">CREATE ACCOUNT</button>
-							<a href="#backtosignin" onclick="backTologin()">Back to login</a>
+							<button type="submit" name="signin" class="create-btn" onclick="">CHANGE PASSWORD</button>
+							<a href="#backtosignin" onclick="backLink()">Back</a>
 						</div>
 						
 					</form>
@@ -85,7 +76,7 @@
 						    </div>
 						</div> 
 						<div class="dropdown">
-						    <button class="dropbtn"><a href="index.php?module=products&action=diary">Diary</a></button>
+						    <button class="dropbtn"><a href="diary.html">Diary</a></button>
 						    <div class="dropdown-content">
 									<!-- <div class="mega-header">
 									  <h3>Shop diaries now!</h3>
@@ -108,7 +99,7 @@
 						    </div>
 						</div> 
 						<div class="dropdown">
-						    <button class="dropbtn"><a href="index.php?module=products&action=pen">Pen</a></button>
+						    <button class="dropbtn"><a href="pen.html">Pen</a></button>
 						    <div class="dropdown-content">
 								<!-- <div class="mega-header">
 								    <h3>Shop pens now!</h3>

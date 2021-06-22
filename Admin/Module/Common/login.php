@@ -1,7 +1,7 @@
 <?php
 require_once ('Config\utility.php');
 
-
+$error="";
 $username = $password = '';
 if(!empty($_POST)) {
 	$username = getPost('username');

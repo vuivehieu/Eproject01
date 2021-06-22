@@ -1,5 +1,4 @@
 <?php
-require_once('config.php');
 function execute($sql){
     $conn = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
 	mysqli_set_charset($conn, 'utf8');

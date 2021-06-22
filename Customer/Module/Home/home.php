@@ -1,6 +1,10 @@
 <?php
 $title = "Ryana Calendar - Designer Stationery, Office and Lifestyle Accessories";
-require_once("Layout/header.php");
+if(isset($_SESSION['user'])){
+           require_once("Layout/loggedin.php");
+}else{
+	 	   require_once("Layout/header.php");
+}
 ?>
 <style type="text/css">
 </style>

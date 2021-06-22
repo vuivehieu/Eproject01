@@ -2,7 +2,7 @@
 $title = "Calendar";
 require_once("Layout/headerforotherpages.php");
 require_once("Config/utility.php");
-$CalendarList = executeResult("SELECT * FROM product WHERE CATEGORY = 'Desk Calendar' OR CATEGORY = 'Wall Calendar' LIMIT 4", false);
+$ProductList = executeResult("SELECT * FROM product WHERE CATEGORY = 'Desk Calendar' OR CATEGORY = 'Wall Calendar' LIMIT 0,4", false);
 ?>
 <!-- =========== Product Intro ========== -->
 
@@ -45,7 +45,7 @@ foreach ($CalendarList as $item) {
 <div class="product">
 	<div class="product-row">
 <?php
-$CalendarList = executeResult("SELECT * FROM product WHERE CATEGORY = 'Desk Calendar' OR CATEGORY = 'Wall Calendar' LIMIT 20,4", false);
+$CalendarList = executeResult("SELECT * FROM product WHERE CATEGORY = 'Desk Calendar' OR CATEGORY = 'Wall Calendar' LIMIT 4,4", false);
 $count = 1;
 foreach ($CalendarList as $item) {
 	
