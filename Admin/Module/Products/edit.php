@@ -3,7 +3,7 @@ $title = "Sửa sản phẩm";
 require_once('Config/utility.php');
 require_once('Layout/header.php');
 $id = "";
-$title = $category = $thumbnail = $manufacturer = $description = $price = $quantity = $status ="";
+$title = $category = $thumbnail = $manufacturer = $description = $price = $quantity = $status = $category_id = "";
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
 	$sql = "SELECT * FROM product WHERE ID = '$id'";
@@ -16,6 +16,7 @@ if(isset($_GET['id'])){
 	$price = $itm['PRICE'];
 	$quantity = $itm['QUANTITY'];
 	$status = $itm['STATUS'];
+	$category_id = $itm['CATEGORY_ID'];
 }
 if(!empty($_POST)){
 	$title = getPost('title');
@@ -27,9 +28,10 @@ if(!empty($_POST)){
 	$description = getPost('description');	
 	$price = getPost('price');
 	$quantity = getPost('quantity');
+	$category_id = getPost('category_id');
 	$status = getPost('status');
 
-	$sql="UPDATE product SET TITLE = '$title', CATEGORY = '$category', THUMBNAIL = '$thumbnail', MANUFACTURER = '$manufacturer', DESCRIPTION = '$description', PRICE = '$price', QUANTITY = '$quantity', STATUS = '$status' WHERE ID = '$id'";
+	$sql="UPDATE product SET TITLE = '$title', CATEGORY = '$category', CATEGORY_ID = '$category_id', THUMBNAIL = '$thumbnail', MANUFACTURER = '$manufacturer', DESCRIPTION = '$description', PRICE = '$price', QUANTITY = '$quantity', STATUS = '$status' WHERE ID = '$id'";
 	execute($sql);
 	header("location: index.php?module=products&action=list");
 }
@@ -54,6 +56,8 @@ if(!empty($_POST)){
 			    <option class="input" value="Foutain Pen">Foutain Pen</option>
 			    <option class="input" value="Pencils">Pencils</option>
 		</select>
+		<label for="category_id">Category ID</label>
+		<input type="text" name="category_id" required="true" class="form-control" value="<?=$category_id?>">
 		<label for="img">Thumbnail</label>
 		<input type="file" name="img" class="form-control" accept="image/*" style="width: 40%;>
 		<label for="manufacturer">Manufacturer</label>

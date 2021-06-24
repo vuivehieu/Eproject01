@@ -1,6 +1,23 @@
 <?php
 $title = "Checkout";	
-require_once("Layout/headerforotherpages.php");
+if(isset($_SESSION['user'])){
+           require_once("Layout/headerforotherpages2.php");
+}else{
+	 	   require_once("Layout/headerforotherpages.php");
+}
+if(!isset($_SESSION['cart'])){
+	$_SESSION['cart']=array();
+}
+
+if(isset($_GET['']))
+$id = "";
+if(isset($_GET['id'])){
+$id = $_GET['id'];
+$sql = "SELECT product.TITLE,product.THUMBNAIL, product.MANUFACTURER, product.PRICE, order_detail.PRODUCT_QUANTITY
+FROM product
+INNER JOIN order_detail ON  product.ID = order_detail.PRODUCT_ID
+WHERE order_detail.ORDER_ID ='$id'
+";
 ?>
 
 		<div class="checkout-page-container">
@@ -19,71 +36,33 @@ require_once("Layout/headerforotherpages.php");
 							<div class="bag-title-2">Price</div>
 							<div class="bag-title-3">Quantity</div>
 					</div>
-					<div class="shopping-bag-row">
+<?php
+$total = 0;
+foreach ($OrderList as $item){
+	$total_price = $item['PRICE']*$item['QUANTITY'];
+	$total +=$total_price;
+	echo
+					'<div class="shopping-bag-row">
 						
 						<div class="shopping-bag-image">
-							<img src="../images/pen/fountain/FP-001-01.png">
+							<img src="'.$item['THUMBNAIL'].'">
 						</div>
 						<div class="shopping-bag-name">
 							<div class="product-brand">
-								lamy
+								'.$item['MANUFACTURER'].'
 							</div>
 							<div class="product-name">
-								Safari Fountain Pen
+								'.$item['TITLE'].'
 							</div>
 						</div>
-						<div class="shopping-bag-price">$7.99</div>
-						<div class="shopping-bag-quantity">2</div>
-						<img class="shopping-bag-delete" onclick="bagDelete()" src="trash-gray.svg">
-					</div>	
-					<div class="shopping-bag-row">
-						<div class="shopping-bag-image">
-							<img src="../images/pen/fountain/FP-002-01.png">
-						</div>
-						<div class="shopping-bag-name">
-							<div class="product-brand">
-								lamy
-							</div>
-							<div class="product-name">
-								ABC Fountain Pen
-							</div>
-						</div>
-						<div class="shopping-bag-price">$8.99</div>
-						<div class="shopping-bag-quantity">1</div>
-						<img class="shopping-bag-delete" onclick="bagDelete()" src="trash-gray.svg">
-					</div>
-					<div class="shopping-bag-row">
-						<div class="shopping-bag-image">
-							<img src="../images/pen/fountain/FP-003-01.png">
-						</div>
-						<div class="shopping-bag-name">
-							<div class="product-brand">
-								lamy
-							</div>
-							<div class="product-name">
-								Classical Fountain Pen
-							</div>
-						</div>
-						<div class="shopping-bag-price">$8.99</div>
-						<div class="shopping-bag-quantity">4</div>
-						<img class="shopping-bag-delete" onclick="bagDelete()" src="trash-gray.svg">
-					</div>
-					<div class="shopping-bag-row">
-						<div class="shopping-bag-image">
-							<img src="../images/pen/fountain/FP-004-01.png">
-						</div>
-						<div class="shopping-bag-name">
-							<div class="product-brand">
-								lamy
-							</div>
-							<div class="product-name">
-								Student Fountain Pen
-							</div>
-						</div>
-						<div class="shopping-bag-price">$8.99</div>
-						<div class="shopping-bag-quantity">1</div>
-						<img class="shopping-bag-delete" onclick="bagDelete()" src="trash-gray.svg">
-					</div>
+						<div class="shopping-bag-price"><?php echo '.$item['PRICE'].' ?></div>
+						<div class="shopping-bag-quantity"><?php echo '.$item['QUANTITY'].' ?></div>
+						<img class="shopping-bag-delete" onclick="bagDelete()" src="../Images/Front/Icons/trash-gray.svg">
+					</div>';
+					}	
+	
+
+					?>
 				</div>
 
 

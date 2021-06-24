@@ -3,7 +3,7 @@ $title = 'Them San Pham';
 require_once('Config/utility.php');
 require_once('Layout/header.php');
 
-$title = $category = $thumbnail = $manufacturer = $description = $price = $quantity = $status = '';
+$title = $category = $thumbnail = $manufacturer = $description = $price = $quantity = $status = $category_id = '';
 if(!empty($_POST)){
 	$title = getPost('title');
 	$category = getPost('category');
@@ -14,8 +14,9 @@ if(!empty($_POST)){
 	$description = getPost('description');
 	$price = getPost('price');
 	$quantity = getPost('quantity');
+	$category_id = getPost('category_id');
 	$status = getPost('status');
-	$sql = "INSERT INTO product(TITLE, THUMBNAIL, CATEGORY, MANUFACTURER, DESCRIPTION, PRICE, QUANTITY, STATUS) VALUES ('$title','$thumbnail','$category','$manufacturer','$description', $price, $quantity, $status)";
+	$sql = "INSERT INTO product(TITLE, THUMBNAIL, CATEGORY, CATEGORY_ID, MANUFACTURER, DESCRIPTION, PRICE, QUANTITY, STATUS) VALUES ('$title','$thumbnail','$category','$category_id','$manufacturer','$description', $price, $quantity, $status)";
 	execute($sql);
 	header("location: index.php?module=products&action=list");
 
@@ -46,6 +47,8 @@ if(!empty($_POST)){
 			    <option class="input" value="Foutain Pen">Foutain Pen</option>
 			    <option class="input" value="Pencils">Pencils</option>
 		</select>
+		<label for="category_id">Category ID</label>
+		<input type="text" name="category_id" required="true" class="form-control" placeholder="Must be unique">
 		<label for="img">Thumbnail</label>
 		<input type="file" name="img" class="form-control" accept="image/*" style="width: 40%;">
 		<label for="manufacturer">Manufacturer</label>

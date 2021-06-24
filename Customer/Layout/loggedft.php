@@ -89,7 +89,7 @@
 
 
 <!-- ========== open navbar to login form ============ -->
-    <script>
+<!--     <script>
 		function openNav() {
 		  document.getElementById("mySidenav").style.width = "400px";
 		}
@@ -111,7 +111,7 @@
 			document.getElementById("signUp").style.width = "0";
 			document.getElementById("mySidenav").style.width= "0";
 		}
-		</script>
+		</script> -->
 
 <!-- ======== transparrent to solid header =========== -->
 		<script>
@@ -137,7 +137,7 @@
 
         function closeNavlogged() {
           document.getElementById("loggedSidenav").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
+          // document.getElementById("main").style.marginLeft= "0";
         }
 
         function passChangenav() {
@@ -153,7 +153,8 @@
             document.getElementById("loggedSidenav").style.width= "0";
         }
         </script>
-
+        <script type="text/javascript">
+</script>
 <script>
 function openSearch() {
   document.getElementById("searchBar").style.display = "block";

@@ -26,7 +26,7 @@ require_once('Module/Products/pagination.php');
 <table class="table justify-content-center">
   <thead>
     <tr>
-      <th scope="col">No</th>
+      <th scope="col">ID</th>
       <th scope="col">Title</th>
       <th scope="col">Category</th>
       <th scope="col">Image</th>
@@ -43,7 +43,6 @@ require_once('Module/Products/pagination.php');
 
 
  <?php  
- $count = 0;
  foreach ($ProductList as $item) {
   $status = $item['STATUS'];
   if($status == 1){
@@ -56,7 +55,7 @@ require_once('Module/Products/pagination.php');
     $status = "Hàng Sắp Về";
   }
  echo '<tr>
-         <th scope="row">'.(++$count).'</th>
+         <th scope="row">'.$item['CATEGORY_ID'].'</th>
          <td>'.$item['TITLE'].'</td>
          <td>'.$item['CATEGORY'].'</td>
          <td><img style="width 160px; height: 160px;" src="'.$item['THUMBNAIL'].'""></td>

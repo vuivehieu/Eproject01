@@ -32,7 +32,7 @@
 			<a href="javascript:void(0)" class="closebtn" onclick="closeSignup()">&times;</a>
 				<div class="user-form-container">
 					<div style="text-align: center; padding-top: 100px;" class="user-form-title">SIGN UP</div>
-					<form class="user-login" method="POST" action="module/common/register.php">
+					<form class="user-login" method="POST" action="index.php?module=common&action=register">
 						<input type="text" name="username" class="text-box" placeholder="Username*" required="true">
 						<input type="email" name="email" class="text-box" placeholder="Email address*" required="true">
 						<input type="number" name="phone" class="text-box" placeholder="Phone*" required="true">
@@ -47,96 +47,121 @@
 					</form>
 				</div>
 		</div>
+		<!-- ===================== Sidebar content (search bar) ====================== -->
+        <div id="searchBar" class="search-bar">
+            <div class="overlay-content">
+                <form>
+                	  <input type="hidden" name="module" value="<?php echo $module ?>">
+                	  <input type="hidden" name="module" value="<?php echo $action ?>">
+                      <button type="submit"><img src="../Images/Front/Icons/search.svg"></button>
+                      <input type="text" placeholder="Search.." name="keyword">
+                      <span class="closebtnsearch" onclick="closeSearch()" title="Close Overlay">×</span>
+                </form>
+            </div>
+        </div>
 
 
 <!-- ======================== Navigation bar ======================= -->		
+
+		<!-- ======================== Navigation bar ======================= -->		
 
 		<div class="header">
 			<div class="header-bg-image">
 				<div class="header-container" id="header-container">
 					<div class="header-left">
-						<a href="index.php?module=home&action=home"><img class="logo" src="../Images/Front/Thumbnail/site_logo.png"></a>
+						<a href="index.html"><img class="logo" src="../Images/Front/Thumbnail/site_logo.png"></a>
 					</div>
 					<div class="navbar">
-						<a href="index.php?module=contact&action=about">About Us</a>
+						<a href="about.html">About Us</a>
 
 						<!-- Dropdown megamenu -->
 				    <div class="dropdown">
-						    <button class="dropbtn"><a href="index.php?module=products&action=calendar">Calendar</a></button>
+						    <button class="dropbtn"><a href="calendar.html">Calendar</a></button>
 						    <div class="dropdown-content">
-								<!-- <div class="mega-header">
-								    <h3>Shop calendar now!</h3>
-								</div>    -->
 						    	<div class="mega-row">
 							        <div class="mega-col">
-							          	<h3>Desk Calendar</h3>
-							          	<a href="#">Staedler</a>
-							          	<a href="#">Stabilo</a>
-							          	<a href="#">Roman</a>
+							          	<a href="calendar.html"><h3>Desk Calendar</h3></a>
+							          	<a>Staedler</a>
+							          	<a>Stabilo</a>
+							          	<a>Roman</a>
 							        </div>
 							        <div class="mega-col">
-							          	<h3>Wall Calendar</h3>
-							          	<a href="#">Traveler's Note</a>
-							          	<a href="#">Midori</a>
-							          	<a href="#">Completist</a>
+							          	<a href="calendar.html"><h3>Wall Calendar</h3></a>
+							          	<a>Traveler's Note</a>
+							          	<a>Midori</a>
+							          	<a>Completist</a>
 							        </div>
-							        	<img class="mega-img" src="../Images/Front/Thumbnail/calendar.jpg">
+							        <div class="mega-col">
+							        	<img class="mega-img" src="../Images/Calendar/Wall Calendar/Thumbnail/WC-002-01.png">
+							        </div>
+							        <div class="mega-col">
+							        	<img class="mega-img" src="../Images/Calendar/Wall Calendar/Thumbnail/WC-003-01.png">
+							        </div>
 						    	</div>
 						    </div>
 						</div> 
 						<div class="dropdown">
-						    <button class="dropbtn"><a href="index.php?module=products&action=diary">Diary</a></button>
+						    <button class="dropbtn"><a href="diary.html">Diary</a></button>
 						    <div class="dropdown-content">
-									<!-- <div class="mega-header">
-									  <h3>Shop diaries now!</h3>
-									</div>    -->
 						    	<div class="mega-row">
 						        <div class="mega-col">
-					          	<h3>Diaries</h3>
-					          	<a href="#">Traveler's Note</a>
-					          	<a href="#">Midori</a>
-					          	<a href="#">Completist</a>
+					          	<a href="diary.html"><h3>Diary & Planner</h3></a>
+					          	<a>Moleskine</a>
+					          	<a>Rhodia</a>
+					          	<a>RIFLE PAPER CO.</a>
 						        </div>
 						        <div class="mega-col">
-					          	<h3>Planners</h3>
-					          	<a href="#">Moleskin</a>
-					          	<a href="#">Blackwing</a>
-					          	<a href="#">LAMY</a>
+					          	<a href="diary.html"><h3>Journal</h3></a>
+					          	<a>Midori</a>
+					          	<a>Moleskine</a>
+					          	<a>RIFLE PAPER CO.</a>
+					          	<a>Rhodia</a>
 						        </div>
-							      <img class="mega-img" src="../Images/Front/Thumbnail/notebook.jpg">
+							      <div class="mega-col">
+							        	<img class="mega-img" src="../Images/Diary/Journal/Thumbnail/J-001-01.png">
+							      </div>
+							      <div class="mega-col">
+							        	<img class="mega-img" src="../Images/Diary/Journal/Thumbnail/J-003-01.png">
+							      </div>
 						    	</div>
 						    </div>
 						</div> 
 						<div class="dropdown">
-						    <button class="dropbtn"><a href="index.php?module=products&action=pen">Pen</a></button>
+						    <button class="dropbtn"><a href="pen.html">Pen</a></button>
 						    <div class="dropdown-content">
-								<!-- <div class="mega-header">
-								    <h3>Shop pens now!</h3>
-								</div>    -->
 						    	<div class="mega-row">
 							        <div class="mega-col">
-							          	<h3>Fountain Pen</h3>
-							          	<a href="#">Kaweco</a>
-							          	<a href="#">Hong Ha</a>
-							          	<a href="#">Traveler's Pen</a>
+							          	<a href="pen.html"><h3>Fountain Pen</h3></a>
+							          	<a>Kaweco</a>
+							          	<a>LAMY</a>
 							        </div>
 							        <div class="mega-col">
-							          	<h3>Pencils & Ball Point Pens</h3>
-							          	<a href="#">Staedler</a>
-							          	<a href="#">Stabilo</a>
-							          	<a href="#">Roman</a>
+							          	<a href="pen.html"><h3>Ball Point Pen</h3></a>
+							          	<a>Kaweco</a>
+							          	<a>LAMY</a>
+							          	<a>Moleskine</a>
+							          	<a>TRAVELER'S COMPANY</a>
 							        </div>
-							        	<img class="mega-img" src="../Images/Front/Thumbnail/pen.jpg">
+							        <div class="mega-col">
+							          	<a href="pen.html"><h3>Pencil</h3></a>
+							          	<a>Kaweco</a>
+							          	<a>LAMY</a>
+							          	<a>Moleskine</a>
+							          	<a>TRAVELER'S COMPANY</a>
+							        </div>
+							        <div class="mega-col">
+							        	<img class="mega-img" src="../Images/Pen/Foutain Pen/Thumbnail/FP-002-01.png">
+							        </div>
 						    	</div>
 						    </div>
 						</div>
   					</div>
   					<div class="header-right">
-  						<a href="#facebook"><img src="../Images/Front/Icons/Search.svg"></a>
-						<a href="index.php?module=contact&action=contact"><img src="../Images/Front/Icons/map-pin.svg"></a>
+  					<a class="open-search-btn" onclick="openSearch()" href="#facebook"><img src="../Images/Front/Icons/search.svg"></a>
+						<a href="contactus.html"><img src="../Images/Front/Icons/map-pin.svg"></a>
 						<!-- login sidebar -->
 						<a href="#facebook" onclick="openNav()"><img src="../Images/Front/Icons/user.svg"></a>
-						<a href="index.php?module=orders&action=checkout"><img src="../Images/Front/Icons/shopping-bag.svg"></a>
+						<a href="checkout.html"><img src="../Images/Front/Icons/shopping-bag.svg"></a>
   					</div>
 				</div>
 			</div>

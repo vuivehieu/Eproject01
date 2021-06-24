@@ -48,5 +48,10 @@ if(isset($_SESSION['user'])){
 
 
 <?php 
-require_once("Layout/footer.php");
+if(isset($_SESSION['user'])){
+           require_once("Layout/loggedft.php");
+}else{
+	 	  require_once("Layout/footer.php");
+}
+
 ?>

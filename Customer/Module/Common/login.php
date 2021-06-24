@@ -13,6 +13,7 @@ if(!empty($_POST)){
 		$_SESSION['user']['name']=$row['NAME'];
 		$_SESSION['user']['phone']=$row['PHONE'];
 		$_SESSION['user']['address']=$row['ADDRESS'];
+		alert("Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại");
 		header("location: index.php?module=home&action=home");
 	}else{
 		alert("Tài khoản hoặc mật khẩu không đúng! Vui lòng thử lại");

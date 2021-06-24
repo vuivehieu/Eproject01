@@ -1,5 +1,5 @@
 <?php 
-require_once("../../Config/utility.php");
+require_once("Config/utility.php");
 
 $username = $email = $phone = $address = $password = $confirmpass = "";
 
@@ -8,22 +8,16 @@ if(!empty($_POST)){
 	$email = getPost('email');
 	$phone = getPost('phone');
 	$address = getPost('address');
-	$password = getPost('password');
-	$confirmpass = getPost('passwordconfirm');
+	$password = getMD5Security(getPost('password'));
+	$confirmpass = getMD5Security(getPost('passwordconfirm'));
 	if($password == $confirmpass){
-			$password = getMD5Security($password);
 		$sql = "INSERT INTO customer(ID, EMAIL, PASSWORD, NAME, PHONE, ADDRESS) VALUES (NULL,'$email','$password','$username','$phone','$address')";
 		execute($sql);
-
-		$msg="Đăng kí thành công";
-        echo "<script type='text/javascript'>alert('$msg');</script>";
-		header("location: ../../index.php");
-			die();
+        alert("Đăng kí thành công");
+		header("location: index.php");
 	}else{
-        $msg="Mật khẩu không trùng khớp";
-        echo "<script type='text/javascript'>alert('$msg');</script>";
-		header("location: ../../index.php");
-			die();
+        alert("Mật khẩu không trùng khớp!!!");
+		header("location: index.php");
 	}
 }
 ?>
